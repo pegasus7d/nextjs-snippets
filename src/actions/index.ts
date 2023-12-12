@@ -8,7 +8,9 @@ export async function editSnippet(id: number, code: string) {
         where: { id },
         data: { code },
     });
-    redirect(`/snippets/${id}`);
+    // redirect(`/snippets/${id}`);
+    revalidatePath(`/snippets/${id}`)
+    redirect('/')
 }
 
 export async function deleteSnippet(id: number) {
